@@ -1,312 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <title>The Den | Llanishen High School</title>
 
-<!-- FAVICONS: replace these paths with your actual logo files -->
-<link rel="icon" href="/images/llanishen-favicon.ico" type="image/x-icon">
-<link rel="icon" href="/images/llanishen-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/images/llanishen-16.png" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="/images/llanishen-180.png" sizes="180x180">
-<link rel="mask-icon" href="/images/llanishen-mask.svg" color="#c89f73">
-
+<!-- Single-file approach: use the official Llanishen High School SVG as the favicon (external URL) -->
+<link rel="icon" href="https://www.llanishenhighschool.co.uk/wp-content/themes/lhs/assets/images/logo.svg" type="image/svg+xml">
 <meta name="theme-color" content="#2d221c">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-body{
-font-family: Georgia, serif;
-background: linear-gradient(to bottom, #2d221c, #4e3d33);
-color:#f6efe7;
-line-height:1.6;
-}
+/* Reset & base */
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Georgia,serif;background:linear-gradient(to bottom,#2d221c,#4e3d33);color:#f6efe7;line-height:1.6}
 
 /* Floating Shark Mascot */
 .floating-shark{
-position:fixed;
-bottom:25%;
-left:-200px; /* starts closer so it's visible sooner */
-width:220px;
-opacity:.9;
-pointer-events:auto; /* allows hover reaction */
-z-index:9999; /* ensures it's above everything */
-animation:
-    sharkFloat 18s linear infinite,
-    finWave 2.2s ease-in-out infinite;
-filter:drop-shadow(0 8px 15px rgba(0,0,0,.4));
-transition:transform .4s ease, opacity .4s ease;
+  position:fixed;
+  bottom:25%;
+  left:-200px;
+  width:220px;
+  opacity:.92;
+  pointer-events:auto;
+  z-index:9999;
+  animation:sharkFloat 18s linear infinite, finWave 2.2s ease-in-out infinite;
+  filter:drop-shadow(0 8px 15px rgba(0,0,0,.4));
+  transition:transform .36s ease, opacity .36s ease, filter .36s ease;
+  transform-origin:center;
 }
 
 /* Hover Reaction */
 .floating-shark:hover{
-transform:scale(1.12) rotate(5deg);
-opacity:1;
-filter:drop-shadow(0 14px 22px rgba(0,0,0,.55));
+  transform:scale(1.12) rotate(5deg);
+  opacity:1;
+  filter:drop-shadow(0 18px 28px rgba(0,0,0,.55));
 }
 
 /* Horizontal floating motion */
 @keyframes sharkFloat{
-0%{transform:translateX(0);}
-50%{transform:translateX(120vw);}
-100%{transform:translateX(0);}
+  0%{transform:translateX(0) rotate(0deg)}
+  50%{transform:translateX(120vw) rotate(3deg)}
+  100%{transform:translateX(0) rotate(0deg)}
 }
 
-/* Fin wave illusion (gentle rocking) */
+/* Fin wave illusion (gentle rocking layered with float) */
 @keyframes finWave{
-0%{transform:rotate(0deg);}
-50%{transform:rotate(3deg);}
-100%{transform:rotate(0deg);}
+  0%{transform:rotate(0deg)}
+  25%{transform:rotate(2.5deg)}
+  50%{transform:rotate(0deg)}
+  75%{transform:rotate(-2.5deg)}
+  100%{transform:rotate(0deg)}
+}
+
+/* Optional bobbing (subtle vertical motion) */
+@keyframes bob{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+  100%{transform:translateY(0)}
 }
 
 /* Hero */
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-background:
-linear-gradient(rgba(25,18,15,.45),rgba(25,18,15,.6)),
-url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80')
-center/cover;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  background:
+    linear-gradient(rgba(25,18,15,.45),rgba(25,18,15,.6)),
+    url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80')
+    center/cover;
 }
+.hero h1{font-size:clamp(3rem,8vw,6rem);letter-spacing:4px;margin-bottom:20px;text-shadow:2px 2px 10px rgba(0,0,0,.5)}
+.hero p{font-size:1.3rem;max-width:700px;margin-bottom:35px}
 
-.hero h1{
-font-size:clamp(3rem,8vw,6rem);
-letter-spacing:4px;
-margin-bottom:20px;
-text-shadow:2px 2px 10px rgba(0,0,0,.5);
-}
-
-.hero p{
-font-size:1.3rem;
-max-width:700px;
-margin-bottom:35px;
-}
-
-.btn{
-background:#c89f73;
-color:#2b211c;
-padding:15px 30px;
-text-decoration:none;
-font-weight:bold;
-border-radius:40px;
-transition:.3s;
-box-shadow:0 4px 15px rgba(0,0,0,.2);
-}
-
-.btn:hover{
-transform:translateY(-3px);
-background:#e3bc92;
-}
+/* Buttons */
+.btn{background:#c89f73;color:#2b211c;padding:15px 30px;text-decoration:none;font-weight:bold;border-radius:40px;transition:.3s;box-shadow:0 4px 15px rgba(0,0,0,.2)}
+.btn:hover{transform:translateY(-3px);background:#e3bc92}
 
 /* Sections */
-section{
-padding:90px 10%;
-}
+section{padding:90px 10%}
+h2{font-size:2.5rem;margin-bottom:25px;color:#ffd8b1}
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:center}
+.card{background:rgba(255,255,255,.06);padding:30px;border-radius:20px;backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:35px}
+.feature{background:#5d473b;padding:30px;border-radius:18px;transition:.3s}
+.feature:hover{transform:translateY(-6px)}
+.feature h3{margin-bottom:12px;color:#ffd8b1}
 
-h2{
-font-size:2.5rem;
-margin-bottom:25px;
-color:#ffd8b1;
-}
-
-.about{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:40px;
-align-items:center;
-}
-
-.card{
-background:rgba(255,255,255,.06);
-padding:30px;
-border-radius:20px;
-backdrop-filter: blur(6px);
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-}
-
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-margin-top:35px;
-}
-
-.feature{
-background:#5d473b;
-padding:30px;
-border-radius:18px;
-transition:.3s;
-}
-
-.feature:hover{
-transform:translateY(-6px);
-}
-
-.feature h3{
-margin-bottom:12px;
-color:#ffd8b1;
-}
-
-/* Fireplace section */
-.fireplace{
-text-align:center;
-background:#3a2d26;
-}
-
-.fire{
-font-size:90px;
-animation:flicker 1.4s infinite alternate;
-margin-top:25px;
-}
-
-@keyframes flicker{
-from{transform:scale(1) rotate(-2deg);}
-to{transform:scale(1.06) rotate(2deg);}
-}
+/* Fireplace */
+.fireplace{text-align:center;background:#3a2d26}
+.fire{font-size:90px;animation:flicker 1.4s infinite alternate;margin-top:25px}
+@keyframes flicker{from{transform:scale(1) rotate(-2deg)}to{transform:scale(1.06) rotate(2deg)}}
 
 /* Contact */
-.contact{
-text-align:center;
-}
-
-input,textarea{
-width:min(600px,100%);
-padding:15px;
-margin:10px auto;
-display:block;
-border:none;
-border-radius:12px;
-background:#f6efe7;
-}
-
-button{
-border:none;
-cursor:pointer;
-}
+.contact{text-align:center}
+input,textarea{width:min(600px,100%);padding:15px;margin:10px auto;display:block;border:none;border-radius:12px;background:#f6efe7}
+button{border:none;cursor:pointer}
 
 /* Footer */
-footer{
-text-align:center;
-padding:30px;
-background:#241b16;
-color:#ccb8a7;
-}
+footer{text-align:center;padding:30px;background:#241b16;color:#ccb8a7}
 
 /* floating lanterns */
-.lantern{
-position:fixed;
-font-size:28px;
-opacity:.35;
-pointer-events:none;
-animation:float 12s linear infinite;
+.lantern{position:fixed;font-size:28px;opacity:.35;pointer-events:none;animation:float 12s linear infinite}
+.l1{left:10%;animation-delay:0s}
+.l2{left:80%;animation-delay:4s}
+.l3{left:50%;animation-delay:8s}
+@keyframes float{from{transform:translateY(100vh)}to{transform:translateY(-120px)}}
+
+/* Shark speech bubble */
+.shark-bubble{
+  position:fixed;
+  bottom:calc(25% + 140px);
+  left:40px;
+  z-index:9998;
+  pointer-events:none;
+  background:rgba(255,255,255,0.06);
+  color:#ffd8b1;
+  padding:10px 14px;
+  border-radius:12px;
+  font-size:0.95rem;
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transform-origin:left bottom;
+  opacity:.9;
+  transition:transform .28s ease, opacity .28s ease;
 }
 
-.l1{left:10%;animation-delay:0s;}
-.l2{left:80%;animation-delay:4s;}
-.l3{left:50%;animation-delay:8s;}
+/* Bubble reacts when shark hovered (visual only) */
+.floating-shark:hover + .shark-bubble{
+  transform:translateY(-6px) scale(1.03);
+  opacity:1;
+}
 
-@keyframes float{
-from{transform:translateY(100vh);}
-to{transform:translateY(-120px);}
+/* Make layout responsive for small screens */
+@media (max-width:520px){
+  .floating-shark{width:160px;bottom:18%}
+  .shark-bubble{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- Floating Shark Mascot -->
+<!-- Floating Shark Mascot (image hosted in your repo attachments) -->
 <img src="/attachments/x8FC3qhxY5mWzavfEVxJK.jpeg" class="floating-shark" alt="Floating Shark Mascot">
+
+<!-- Speech bubble (visual companion to the shark) -->
+<div class="shark-bubble">This corner is for everyone — come chill.</div>
 
 <div class="lantern l1">✨</div>
 <div class="lantern l2">🕯️</div>
 <div class="lantern l3">✨</div>
 
 <section class="hero">
-<h1>The Den</h1>
-<p>A warm corner of comfort, stories, soft light, and slow evenings.</p>
-<a href="#about" class="btn">Enter the Den</a>
+  <h1>The Den</h1>
+  <p>A warm corner of comfort, stories, soft light, and slow evenings.</p>
+  <a href="#about" class="btn">Enter the Den</a>
 </section>
 
 <section id="about">
-<div class="about">
-<div>
-<h2>Welcome Home</h2>
-<p>
-The Den is a retreat from the noise — warm blankets, books on shelves,
-quiet conversations, coffee by the fire, and moments worth lingering in.
-</p>
-</div>
+  <div class="about">
+    <div>
+      <h2>Welcome Home</h2>
+      <p>
+        The Den is a retreat from the noise — warm blankets, books on shelves,
+        quiet conversations, coffee by the fire, and moments worth lingering in.
+      </p>
+    </div>
 
-<div class="card">
-<h3>Today's Cozy Mood</h3>
-<p id="quote"></p>
-</div>
-</div>
+    <div class="card">
+      <h3>Today's Cozy Mood</h3>
+      <p id="quote"></p>
+    </div>
+  </div>
 </section>
 
 <section>
-<h2>What You'll Find Here</h2>
+  <h2>What You'll Find Here</h2>
 
-<div class="features">
-<div class="feature">
-<h3>☕ Warm Drinks</h3>
-<p>Tea, coffee, cocoa, and slow mornings.</p>
-</div>
+  <div class="features">
+    <div class="feature">
+      <h3>☕ Warm Drinks</h3>
+      <p>Tea, coffee, cocoa, and slow mornings.</p>
+    </div>
 
-<div class="feature">
-<h3>📚 Stories</h3>
-<p>Books, journals, conversations, and quiet inspiration.</p>
-</div>
+    <div class="feature">
+      <h3>📚 Stories</h3>
+      <p>Books, journals, conversations, and quiet inspiration.</p>
+    </div>
 
-<div class="feature">
-<h3>🔥 Fireside Vibes</h3>
-<p>Soft light, comfort, and a place to unwind.</p>
-</div>
-</div>
+    <div class="feature">
+      <h3>🔥 Fireside Vibes</h3>
+      <p>Soft light, comfort, and a place to unwind.</p>
+    </div>
+  </div>
 </section>
 
 <section class="fireplace">
-<h2>Pull Up A Chair</h2>
-<p>Stay awhile by the fire.</p>
-<div class="fire">🔥</div>
+  <h2>Pull Up A Chair</h2>
+  <p>Stay awhile by the fire.</p>
+  <div class="fire">🔥</div>
 </section>
 
 <section class="contact">
-<h2>Leave a Note</h2>
-<input placeholder="Your Name">
-<textarea rows="5" placeholder="Write something cozy..."></textarea>
-<button class="btn" onclick="toast()">Send to The Den</button>
+  <h2>Leave a Note</h2>
+  <input placeholder="Your Name">
+  <textarea rows="5" placeholder="Write something cozy..."></textarea>
+  <button class="btn" onclick="toast()">Send to The Den</button>
 </section>
 
 <footer>
-Made with warmth at The Den ✨
+  Made with warmth at The Den ✨
 </footer>
 
 <script>
+/* Cozy quote card */
 const quotes = [
-"Comfort is a place that welcomes you back.",
-"The fire is warm, the tea is ready.",
-"Quiet moments often hold the richest stories.",
-"Stay long enough for the room to feel like home.",
-"Soft light and slower hours live here."
+  "Comfort is a place that welcomes you back.",
+  "The fire is warm, the tea is ready.",
+  "Quiet moments often hold the richest stories.",
+  "Stay long enough for the room to feel like home.",
+  "Soft light and slower hours live here."
 ];
+document.getElementById("quote").textContent = quotes[Math.floor(Math.random()*quotes.length)];
 
-document.getElementById("quote").textContent =
-quotes[Math.floor(Math.random()*quotes.length)];
-
+/* Toast for contact button */
 function toast(){
-alert("Your note drifts into The Den 🍂");
+  alert("Your note drifts into The Den 🍂");
+}
+
+/* Small enhancement: pause float animation while hovering for a calmer reaction */
+const shark = document.querySelector('.floating-shark');
+if (shark){
+  shark.addEventListener('mouseenter', ()=> {
+    shark.style.animationPlayState = 'paused';
+  });
+  shark.addEventListener('mouseleave', ()=> {
+    shark.style.animationPlayState = 'running';
+  });
 }
 </script>
 
