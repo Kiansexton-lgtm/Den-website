@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>The Den</title>
+<title>The Den | Llanishen High School</title>
+
+<!-- FAVICONS: replace these paths with your actual logo files -->
+<link rel="icon" href="/images/llanishen-favicon.ico" type="image/x-icon">
+<link rel="icon" href="/images/llanishen-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/llanishen-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/images/llanishen-180.png" sizes="180x180">
+<link rel="mask-icon" href="/images/llanishen-mask.svg" color="#c89f73">
+
+<meta name="theme-color" content="#2d221c">
+
 <style>
 *{
 margin:0;
@@ -22,19 +32,38 @@ line-height:1.6;
 /* Floating Shark Mascot */
 .floating-shark{
 position:fixed;
-bottom:20%;
-left:-300px;
+bottom:25%;
+left:-200px; /* starts closer so it's visible sooner */
 width:220px;
-opacity:.85;
-pointer-events:none;
-animation:sharkFloat 22s linear infinite;
+opacity:.9;
+pointer-events:auto; /* allows hover reaction */
+z-index:9999; /* ensures it's above everything */
+animation:
+    sharkFloat 18s linear infinite,
+    finWave 2.2s ease-in-out infinite;
 filter:drop-shadow(0 8px 15px rgba(0,0,0,.4));
+transition:transform .4s ease, opacity .4s ease;
 }
 
+/* Hover Reaction */
+.floating-shark:hover{
+transform:scale(1.12) rotate(5deg);
+opacity:1;
+filter:drop-shadow(0 14px 22px rgba(0,0,0,.55));
+}
+
+/* Horizontal floating motion */
 @keyframes sharkFloat{
-0%{transform:translateX(0) rotate(0deg);}
-50%{transform:translateX(120vw) rotate(3deg);}
-100%{transform:translateX(0) rotate(0deg);}
+0%{transform:translateX(0);}
+50%{transform:translateX(120vw);}
+100%{transform:translateX(0);}
+}
+
+/* Fin wave illusion (gentle rocking) */
+@keyframes finWave{
+0%{transform:rotate(0deg);}
+50%{transform:rotate(3deg);}
+100%{transform:rotate(0deg);}
 }
 
 /* Hero */
