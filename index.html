@@ -19,6 +19,24 @@ color:#f6efe7;
 line-height:1.6;
 }
 
+/* Floating Shark Mascot */
+.floating-shark{
+position:fixed;
+bottom:20%;
+left:-300px;
+width:220px;
+opacity:.85;
+pointer-events:none;
+animation:sharkFloat 22s linear infinite;
+filter:drop-shadow(0 8px 15px rgba(0,0,0,.4));
+}
+
+@keyframes sharkFloat{
+0%{transform:translateX(0) rotate(0deg);}
+50%{transform:translateX(120vw) rotate(3deg);}
+100%{transform:translateX(0) rotate(0deg);}
+}
+
 /* Hero */
 .hero{
 height:100vh;
@@ -177,6 +195,9 @@ to{transform:translateY(-120px);}
 </style>
 </head>
 <body>
+
+<!-- Floating Shark Mascot -->
+<img src="/attachments/x8FC3qhxY5mWzavfEVxJK.jpeg" class="floating-shark" alt="Floating Shark Mascot">
 
 <div class="lantern l1">✨</div>
 <div class="lantern l2">🕯️</div>
